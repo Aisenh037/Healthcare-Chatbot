@@ -1,0 +1,12 @@
+# Experiment Configuration Examples
+
+name: baseline_minilm
+model_name: llama-3.1-8b-instant
+embedding_model: sentence-transformers/all-MiniLM-L6-v2
+chunk_size: 1000
+chunk_overlap: 100
+top_k: 10
+temperature: 0.3
+metadata:
+  description: "Baseline experiment with MiniLM embeddings"
+  hypothesis: "Small, fast model suitable for medical RAG"

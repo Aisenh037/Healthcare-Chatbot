@@ -1,0 +1,12 @@
+# Experiment Configuration - Advanced Embeddings
+
+name: advanced_mpnet
+model_name: llama-3.1-8b-instant
+embedding_model: sentence-transformers/all-mpnet-base-v2
+chunk_size: 1000
+chunk_overlap: 100
+top_k: 10
+temperature: 0.3
+metadata:
+  description: "Advanced experiment with MPNet embeddings"
+  hypothesis: "Larger model may provide better semantic understanding for medical queries"

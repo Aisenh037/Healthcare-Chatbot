@@ -1,0 +1,53 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# Environment variables
+.env
+.env.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project specific
+uploaded_docs/
+*.pdf
+*.log
+
+# Git
+.git/
+.gitignore
+
+# Documentation artifacts
+*.md
+!README.md
+
+# Notebooks
+notebooks/
+experiments/results.json
+experiments/*_result.json
+experiments/*_config.yaml
+
+# Cache
+.pytest_cache/
+.mypy_cache/

@@ -26,12 +26,15 @@ python-dotenv
 pydantic
 requests
 tqdm
+pandas  # For data engineering pipeline
 
 # Authentication
 pymongo[bson] 
 bcrypt 
 
-
+# ML Experiment Tracking
+mlflow
+pyyaml
 
 
 #  uv pip install -r requirements.txt

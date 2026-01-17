@@ -1,0 +1,15 @@
+# Experiment: BioBERT Medical Embedding Model
+# Medical-specific model trained on PubMed and PMC corpus
+
+name: biobert_experiment
+experiment_name: biobert_medical
+model_name: llama-3.1-8b-instant
+embedding_model: dmis-lab/biobert-base-cased-v1.2
+chunk_size: 1000
+chunk_overlap: 100
+top_k: 10
+temperature: 0.3
+metadata:
+  description: "Medical-specific embeddings using BioBERT trained on biomedical literature"
+  model_family: "medical"
+  embedding_dim: 768

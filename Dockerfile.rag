@@ -1,0 +1,28 @@
+# Multi-purpose Dockerfile for RAG System
+FROM python:3.11-slim
+
+WORKDIR /app
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy requirements
+COPY minimal_rag/requirements.txt requirements.txt
+
+# Install Python dependencies
+# Adding fastapi, uvicorn, streamlit, python-multipart for the app
+RUN pip install --no-cache-dir -r requirements.txt \
+    && pip install --no-cache-dir fastapi uvicorn streamlit python-multipart requests
+
+# Copy application code
+COPY . .
+
+# Create directory for uploads
+RUN mkdir -p data/uploads
+
+# Expose ports
+EXPOSE 8000 8501
+
+# No default command - controlled by docker-compose

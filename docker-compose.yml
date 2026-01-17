@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+  # Backend API Service
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: medical-chatbot-backend
+    ports:
+      - "8000:8000"
+    environment:
+      - MONGO_URI=${MONGO_URI}
+      - DB_NAME=${DB_NAME}
+      - PINECONE_API_KEY=${PINECONE_API_KEY}
+      - GOOGLE_API_KEY=${GOOGLE_API_KEY}
+      - GROQ_API_KEY=${GROQ_API_KEY}
+    volumes:
+      - ./uploaded_docs:/app/uploaded_docs
+      - ./server:/app/server
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - medical-chatbot-network
+
+  # Optional: MongoDB Local Instance (if not using Atlas)
+  # Uncomment below if you want to run MongoDB locally
+  # mongodb:
+  #   image: mongo:7.0
+  #   container_name: medical-chatbot-mongo
+  #   ports:
+  #     - "27017:27017"
+  #   environment:
+  #     - MONGO_INITDB_ROOT_USERNAME=admin
+  #     - MONGO_INITDB_ROOT_PASSWORD=password123
+  #   volumes:
+  #     - mongo_data:/data/db
+  #   networks:
+  #     - medical-chatbot-network
+
+networks:
+  medical-chatbot-network:
+    driver: bridge
+
+# volumes:
+#   mongo_data:

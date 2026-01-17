@@ -1,0 +1,15 @@
+# Experiment: BGE Small General-Purpose Embedding Model
+# State-of-the-art general-purpose embedding model from BAAI
+
+name: bge_experiment
+experiment_name: bge_small_general
+model_name: llama-3.1-8b-instant
+embedding_model: BAAI/bge-small-en-v1.5
+chunk_size: 1000
+chunk_overlap: 100
+top_k: 10
+temperature: 0.3
+metadata:
+  description: "General-purpose embeddings using BGE (best general embeddings)"
+  model_family: "general"
+  embedding_dim: 384

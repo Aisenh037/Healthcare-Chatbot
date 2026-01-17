@@ -1,0 +1,62 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Medical Q&A Dataset Schema",
+    "description": "Schema for medical question-answer datasets",
+    "type": "object",
+    "properties": {
+        "question": {
+            "type": "string",
+            "description": "Medical question from patient or healthcare professional",
+            "minLength": 10,
+            "maxLength": 1000
+        },
+        "answer": {
+            "type": "string",
+            "description": "Comprehensive medical answer",
+            "minLength": 20,
+            "maxLength": 5000
+        },
+        "category": {
+            "type": "string",
+            "description": "Medical specialty or category",
+            "enum": [
+                "cardiology",
+                "neurology",
+                "endocrinology",
+                "pulmonology",
+                "gastroenterology",
+                "hematology",
+                "nephrology",
+                "rheumatology",
+                "oncology",
+                "psychiatry",
+                "urology",
+                "critical_care",
+                "general"
+            ]
+        },
+        "difficulty": {
+            "type": "string",
+            "description": "Question difficulty level",
+            "enum": [
+                "easy",
+                "medium",
+                "hard"
+            ]
+        },
+        "source": {
+            "type": "string",
+            "description": "Optional source of the Q&A pair"
+        },
+        "last_updated": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Last update timestamp"
+        }
+    },
+    "required": [
+        "question",
+        "answer"
+    ],
+    "additionalProperties": true
+}

@@ -1,0 +1,4 @@
+- [x] Edit server/docs/vectorstore.py: Remove global Pinecone/index init, add lazy init function, call in load_vectorstore, wrap async operations, remove unused import chunk.
+- [x] Edit server/chat/chat_query.py: Remove global pc and index, add lazy init in answer_query, ensure async wraps.
+- [x] Test import with python -c "import sys; sys.path.append('server'); from main import app; print('Import successful')"
+- [x] If successful, test startup with uvicorn.
